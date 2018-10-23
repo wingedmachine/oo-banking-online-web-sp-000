@@ -25,7 +25,7 @@ class Transfer
     end
   end
 
-  def reverse_transaction
+  def reverse_transfer
     return nil if @status != "completed"
 
     @reciever.deposit(-@amount)
