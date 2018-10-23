@@ -15,7 +15,7 @@ class Transfer
   def execute_transaction
     return nil if @status == "complete"
 
-    if @sender.balance > @amount do
+    if @sender.balance >= @amount do
       @sender.deposit(-@amount)
       @receiver.deposit(@amount)
       @status = "complete"
