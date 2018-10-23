@@ -26,6 +26,7 @@ class Transfer
   end
 
   def reverse_transfer
+    binding.pry
     return nil if @status != "completed"
 
     @receiver.deposit(-@amount)
