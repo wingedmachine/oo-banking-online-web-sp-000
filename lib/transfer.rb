@@ -13,7 +13,8 @@ class Transfer
   end
 
   def execute_transaction
-    return nil unles @status == "pending" and valid?
+    return nil if @status == "complete"
+    return "Transaction rejected. Please check your account balance." unless valid?
 
     @sender.deposit(-@amount)
     @receiver.deposit(@amount)
