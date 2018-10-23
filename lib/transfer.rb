@@ -13,7 +13,7 @@ class Transfer
   end
 
   def execute_transaction
-    if @status == "complete" { return nil }
+    return nil if @status == "complete"
 
     @sender.deposit(-@amount)
     @receiver.deposit(@amount)
