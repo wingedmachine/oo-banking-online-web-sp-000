@@ -13,10 +13,10 @@ class Transfer
   end
 
   def execute_transaction
-    if @status != "complete" do
-      @sender.deposit(-@amount)
-      @receiver.deposit(@amount)
-      @status = "complete"
-    end
+    if @status == "complete" return nil
+
+    @sender.deposit(-@amount)
+    @receiver.deposit(@amount)
+    @status = "complete"
   end
 end
